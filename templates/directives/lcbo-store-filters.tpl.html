@@ -1,0 +1,6 @@
+<li class="item item-checkbox" ng-repeat="filterType in storeFilters">
+    <label for="{{filterType.filter}}" class="checkbox">
+        <input name="{{filterType.filter}}" type="checkbox" ng-model="filters[filterType.filter]" ng-false-value="">
+    </label>
+    {{filterType.title}}
+</li>

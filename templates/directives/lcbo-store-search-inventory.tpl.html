@@ -1,0 +1,22 @@
+<!-- search inventory -->
+<li class="item item-icon-left item-icon-right" ng-click="searchOpenToggle();">
+    <i class="icon ion-ios7-search-strong"></i>
+    Search Inventory
+    <i class="icon" ng-class="{'ion-ios7-plus-outline': !searchOpen, 'ion-ios7-close': searchOpen}"></i>
+</li>
+
+<!-- search inventory form -->
+<form class="item item-input-inset" ng-submit="productSearch();" ng-show="searchOpen">
+    <label class="item-input-wrapper">
+        <input type="text" placeholder="Search" ng-model="query.text">
+        <i class="icon ion-ios7-close-outline placeholder-icon" ng-click="clearSearch();"></i>
+    </label>
+    <input type="submit" class="button button-small button-positive button-clear">
+</form>
+
+<!-- search inventory error -->
+<li class="item item-assertive item-icon-left item-icon-right" ng-show="noProducts && searchOpen" ng-click="clearError();">
+    <i class="icon ion-alert-circled"></i>
+    No Items Found
+    <i class="icon ion-ios7-close-outline"></i>
+</li>

@@ -1,0 +1,37 @@
+<div class="modal">
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">Store Search Tool</h1>
+    </div>
+    <content has-header="true" has-footer="true">
+        <div class="item item-divider item-dark">
+            Find Local Stores
+        </div>
+        <div class="item item-text-wrap">
+            <p>To search for stores near your current location, press the navigation button <i class="icon ion-ios7-navigate-outline"></i> to find local stores.</p>
+
+            <p class="center"><img src="img/find_local.gif" /></p>
+        </div>
+        <div class="item item-divider item-dark">
+            Perform a Store Search
+        </div>
+        <div class="item item-text-wrap">
+            <p>To search for a specific store using a query, press the menu button <i class="icon ion-navicon"></i> to reveal the search engine.</p>
+
+            <p>When you save stores as favourites, you will find them here.</p>
+
+            <p class="center"><img src="img/slide_menu.gif"></p>
+        </div>
+
+        <ul class="list">
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="tip.selected" ng-true-value="true" ng-false-value="false">
+                </label>
+                Hide Tooltips
+            </li>
+        </ul>
+    </content>
+    <button class="bar bar-footer bar-positive" ng-click="closeModal(tip)">
+        <span class="title">Close</span>
+    </button>
+</div>

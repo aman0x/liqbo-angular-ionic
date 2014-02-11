@@ -1,0 +1,47 @@
+.scroll {
+    height: 100%;
+
+    .angular-google-map {
+        height: 100%;
+        width: 100%;
+
+        .angular-google-map-container {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+#trigger-filters {
+    margin-right: 12px;
+}
+
+#form-header-search {
+    width: 100%;
+    display: flex;
+}
+
+.bar-search {
+    padding: 0;
+    height: 54px;
+}
+
+#search-bar {
+    background: none;
+
+    .item {
+        background: none;
+        border: none;
+    }
+}
+
+p.center {
+    text-align: center;
+    img {
+        border: 1px solid #ccc;
+        padding: 8px;
+        margin: 15px 0 0 0;
+        width: 100%;
+        max-width: 250px;
+    }
+}

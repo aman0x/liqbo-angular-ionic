@@ -1,0 +1,54 @@
+/* line 1, ../sass/app.scss */
+.scroll {
+  height: 100%;
+}
+/* line 4, ../sass/app.scss */
+.scroll .angular-google-map {
+  height: 100%;
+  width: 100%;
+}
+/* line 8, ../sass/app.scss */
+.scroll .angular-google-map .angular-google-map-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 15, ../sass/app.scss */
+#trigger-filters {
+  margin-right: 12px;
+}
+
+/* line 19, ../sass/app.scss */
+#form-header-search {
+  width: 100%;
+  display: flex;
+}
+
+/* line 24, ../sass/app.scss */
+.bar-search {
+  padding: 0;
+  height: 54px;
+}
+
+/* line 29, ../sass/app.scss */
+#search-bar {
+  background: none;
+}
+/* line 32, ../sass/app.scss */
+#search-bar .item {
+  background: none;
+  border: none;
+}
+
+/* line 38, ../sass/app.scss */
+p.center {
+  text-align: center;
+}
+/* line 40, ../sass/app.scss */
+p.center img {
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin: 15px 0 0 0;
+  width: 100%;
+  max-width: 250px;
+}

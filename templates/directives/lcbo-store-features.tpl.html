@@ -1,0 +1,41 @@
+<li class="item item-icon-left item-icon-right" ng-click="featuresOpenToggle();">
+    <i class="icon ion-ios7-cart"></i>
+    Store Features
+    <i class="icon" ng-class="{'ion-ios7-plus-outline': !featuresOpen, 'ion-ios7-close': featuresOpen}"></i>
+</li>
+<li class="item item-icon-left item-inset" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_beer_cold_room, 'ion-ios7-close-empty assertive': !store.has_beer_cold_room}"></i>
+    Cold Beer Room
+</li>
+<li class="item item-icon-left" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_bilingual_services, 'ion-ios7-close-empty assertive': !store.has_bilingual_services}"></i>
+    Bilingual Service
+</li>
+<li class="item item-icon-left" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_parking, 'ion-ios7-close-empty assertive': !store.has_parking}"></i>
+    Parking
+</li>
+<li class="item item-icon-left" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_product_consultant, 'ion-ios7-close-empty assertive': !store.has_product_consultant}"></i>
+    Product Consultant
+</li>
+<li class="item item-icon-left" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_special_occasion_permits, 'ion-ios7-close-empty assertive': !store.has_special_occasion_permits}"></i>
+    Special Occasion Permits
+</li>
+<li class="item item-icon-left" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_tasting_bar, 'ion-ios7-close-empty assertive': !store.has_tasting_bar}"></i>
+    Tasting Bar
+</li>
+<li class="item item-icon-left" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_transit_access, 'ion-ios7-close-empty assertive': !store.has_transit_access}"></i>
+    Transit Access
+</li>
+<li class="item item-icon-left" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_vintages_corner, 'ion-ios7-close-empty assertive': !store.has_vintages_corner}"></i>
+    Vintages Corner
+</li>
+<li class="item item-icon-left" ng-show="featuresOpen">
+    <i class="icon" ng-class="{'ion-ios7-checkmark-empty positive': store.has_wheelchair_accessability, 'ion-ios7-close-empty assertive': !store.has_wheelchair_accessability}"></i>
+    Wheelchair Access
+</li>

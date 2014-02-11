@@ -1,0 +1,49 @@
+<view title="'Store Detail'">
+    <div class="bar bar-header bar-dark">
+        <a class="button button-clear icon ion-arrow-left-b" href="#/tab/stores"></a>
+        <h1 class="title">{{store.name}}</h1>
+    </div>
+    <content has-header="true" has-tabs="true" scroll="true" padding="false">
+        <list>
+
+            <!-- product info -->
+            <a href="#/tab/stores?storeid={{store.id}}" class="item item-thumbnail-left">
+                <!-- google map thumbnail -->
+                <img src="http://maps.googleapis.com/maps/api/staticmap?center={{store.latitude}},{{store.longitude}}&zoom=15&size=80x80&scale=2&maptype=roadmap
+&markers=color:red%7C{{store.latitude}},{{store.longitude}}&sensor=false">
+                <h2 class="positive">{{store.name}}</h2>
+                <h3>{{store.address_line_1}} {{store.address_line_2}}</h3>
+                <h3>{{store.city}}</h3>
+                <h3>{{store.postal_code}}</h3>
+            </a>
+
+            <!-- telephone button -->
+            <a href="tel:{{store.telephone}}" class="item item-icon-left item-icon-right item-dark">
+                <i class="icon ion-chatbubble-working"></i>
+                {{store.telephone}}
+                <i class="icon ion-ios7-telephone-outline"></i>
+            </a>
+
+            <lcbo-store-search-inventory></lcbo-store-search-inventory>
+
+            <!-- search inventory results -->
+            <ul ng-if="productResults.length > 0">
+                <li class="item item-icon-left" ng-repeat="product in productResults" ng-show="searchOpen">
+                    <i class="icon ion-beer"></i>{{product.name}}<span class="badge badge-assertive">{{product.quantity}}</span>
+                    <p>{{product.package}}</p>
+                </li>
+            </ul>
+
+            <!-- add as favorite button -->
+            <a class="item item-icon-left item-icon-right" href="" ng-click="toggleFavorite(store);" ng-class="{'item-positive': isFavorite}">
+                <i class="icon ion-thumbsup" ng-class="{dark: !isFavorite}"></i>
+                <span ng-class="{dark: !isFavorite}">Favorite</span>
+                <i class="icon" ng-class="{'ion-ios7-plus-outline': !isFavorite, 'ion-ios7-close': isFavorite}"></i>
+            </a>
+
+            <lcbo-store-features></lcbo-store-features>
+
+            <lcbo-store-hours></lcbo-store-hours>
+        </list>
+    </content>
+</view>

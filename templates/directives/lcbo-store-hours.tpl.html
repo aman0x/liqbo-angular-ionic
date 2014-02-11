@@ -1,0 +1,12 @@
+<li class="item item-icon-left item-icon-right" ng-click="hoursOpenToggle();">
+    <i class="icon ion-ios7-clock-outline"></i>
+    Hours
+    <i class="icon" ng-class="{'ion-ios7-plus-outline': !hoursOpen, 'ion-ios7-close': hoursOpen}"></i>
+</li>
+<lcbo-hours-operation ng-show="hoursOpen" day="Monday" open="{{store.monday_open}}" close="{{store.monday_close}}"></lcbo-hours-operation>
+<lcbo-hours-operation ng-show="hoursOpen" day="Tuesday" open="{{store.tuesday_open}}" close="{{store.tuesday_close}}"></lcbo-hours-operation>
+<lcbo-hours-operation ng-show="hoursOpen" day="Wednesday" open="{{store.wednesday_open}}" close="{{store.wednesday_close}}"></lcbo-hours-operation>
+<lcbo-hours-operation ng-show="hoursOpen" day="Thursday" open="{{store.thursday_open}}" close="{{store.thursday_close}}"></lcbo-hours-operation>
+<lcbo-hours-operation ng-show="hoursOpen" day="Friday" open="{{store.friday_open}}" close="{{store.friday_close}}"></lcbo-hours-operation>
+<lcbo-hours-operation ng-show="hoursOpen" day="Saturday" open="{{store.saturday_open}}" close="{{store.saturday_close}}"></lcbo-hours-operation>
+<lcbo-hours-operation ng-show="hoursOpen" day="Sunday" open="{{store.sunday_open}}" close="{{store.sunday_close}}"></lcbo-hours-operation>

@@ -1,0 +1,53 @@
+<view title="'Stores'">
+    <side-menus>
+        <pane side-menu-content>
+            <header class="bar bar-header bar-positive">
+                <button class="button button-icon" ng-click="toggleSlide()"><i class="icon ion-navicon"></i></button>
+                <h1 class="title">Stores</h1>
+                <button class="button button-icon" ng-click="findUsersLocation(findStores)"><i class="icon ion-ios7-navigate-outline"></i></button>
+            </header>
+            <div class="bar bar-subheader bar-assertive" ng-click="hideError();" ng-if="error.reveal">
+                <button class="button button-icon"><i class="icon ion-alert-circled"></i></button>
+                <h2 class="title">{{error.message}}</h2>
+                <button class="button button-icon"><i class="icon ion-ios7-close-outline"></i></button>
+            </div>
+            <content has-header="true" scroll=false>
+
+                <!-- google map directive -->
+                <google-map ng-if="$root.online" center="$root.map.center" zoom="$root.map.zoom" options="$root.map.options" draggable="true" fit="true">
+                    <marker coords="$root.user" icon="map.icons.user"></marker>
+                    <markers models="$root.localStores" coords="'self'" fit="'true'" icon="'icon'" click="'onClicked'"></markers>
+                </google-map>
+                <!-- google map directive -->
+
+            </content>
+        </pane>
+        <side-menu side="left">
+            <header class="bar bar-header bar-dark" fade-header>
+                <h1 class="title">Options</h1>
+            </header>
+            <content has-header="true" has-tabs="true">
+                <list class="list">
+                    <li class="item item-divider">Search Stores</li>
+                    <!-- search -->
+                    <form class="item item-input-inset" ng-submit="storeSearch();">
+                        <label class="item-input-wrapper">
+                            <i class="icon ion-ios7-search-strong placeholder-icon"></i>
+                            <input type="text" placeholder="Search" ng-model="query.text">
+                            <i class="icon ion-ios7-close-outline placeholder-icon" ng-click="clearSearch();"></i>
+                        </label>
+                        <input type="submit" class="button button-small button-positive button-clear">
+                    </form>
+
+                    <!-- filters -->
+                    <li class="item item-divider">Filter Results</li>
+                    <lcbo-store-filters></lcbo-store-filters>
+
+                    <!-- favorites -->
+                    <li class="item item-divider" ng-show="favorites.length > 0">Favourite Stores</li>
+                    <a class="item" ng-repeat="favorite in favorites" href="#/tab/stores/{{favorite.id}}">{{favorite.name}}</a>
+                </list>
+            </content>
+        </side-menu>
+    </side-menus>
+</view>

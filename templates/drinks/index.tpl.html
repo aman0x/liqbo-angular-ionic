@@ -1,0 +1,79 @@
+<view title="'Drinks'">
+    <side-menus>
+        <pane side-menu-content>
+            <div class="bar bar-header bar-positive item-input-inset" ng-submit="search();">
+                <button id="trigger-filters" class="button button-clear icon ion-navicon" ng-click="toggleSlide();"></button>
+                <label class="item-input-wrapper">
+                    <i class="icon ion-ios7-search-strong placeholder-icon"></i>
+                    <input type="search" placeholder="Search" ng-model="query.input" />
+                    <i class="icon ion-ios7-close-outline placeholder-icon" ng-click="clearSearch();"></i>
+                </label>
+                <button class="button button-clear" ng-click="search();">
+                    Search
+                </button>
+            </div>
+            <content has-header="true" has-tabs="true" scroll="true" padding="false"  id="top">
+                <list id="list-drinks" can-swipe="true">
+                    <li class="item" ng-show="filtered.length === 0">No results to display</li>
+                    <a ng-repeat="item in filtered = (results | filter: filters)" class="item item-thumbnail-left item-icon-right" href="#/tab/drinks/{{item.id}}" ng-click="viewProduct(item);">
+                        <img src="{{item.image_thumb_url}}" ng-if="item.image_thumb_url">
+                        <img src="img/no-img.png" ng-if="!item.image_thumb_url">
+                        <span class="badge badge-positive" ng-if="item.has_limited_time_offer">Sale</span>
+                        <h4 class="positive">{{item.name}}</h4>
+                        <h4>{{item.alcohol_content | alcoholPercentage}} {{item.primary_category}} </h4>
+                        <h5>{{item.package}}</h5>
+                        <p>{{item.price_in_cents | centsToDollars}}</p>
+                        <i class="icon ion-ios7-arrow-right placeholder-icon"></i>
+                    </a>
+                    <a class="item" href="" ng-click="loadMore();" ng-show="pager.total_record_count > 10 && results.length < pager.total_record_count && results.length < 60">Load Next 10 Results</a>
+                </list>
+            </content>
+        </pane>
+        <side-menu side="left">
+            <header class="bar bar-header bar-dark" fade-header>
+                <h1 class="title">Options</h1>
+            </header>
+            <content has-header="true" has-footer="true">
+                <ul class="list">
+                    <!-- filters -->
+                    <li class="item item-divider">Filter Search Results</li>
+                    <li class="item item-checkbox">
+                        <label for="has_limited_time_offer" class="checkbox">
+                            <input name="has_limited_time_offer" type="checkbox" ng-model="filters.has_limited_time_offer" ng-false-value="">
+                        </label>
+                        On Sale
+                    </li>
+                    <li class="item item-checkbox">
+                        <label for="has_bonus_reward_miles" class="checkbox">
+                            <input name="has_bonus_reward_miles" type="checkbox" ng-model="filters.has_bonus_reward_miles" ng-false-value="">
+                        </label>
+                        Bonus Reward Miles
+                    </li>
+                    <li class="item item-checkbox">
+                        <label for="is_seasonal" class="checkbox">
+                            <input name="is_seasonal" type="checkbox" ng-model="filters.is_seasonal" ng-false-value="">
+                        </label>
+                        Seasonal
+                    </li>
+                    <li class="item item-checkbox">
+                        <label for="is_vqa" class="checkbox">
+                            <input name="is_vqa" type="checkbox" ng-model="filters.is_vqa" ng-false-value="">
+                        </label>
+                        VQA
+                    </li>
+                    <li class="item item-checkbox">
+                        <label for="is_kosher" class="checkbox">
+                            <input name="is_kosher" type="checkbox" ng-model="filters.is_kosher" ng-false-value="">
+                        </label>
+                        Kosher
+                    </li>
+
+                    <!-- favorites -->
+                    <li class="item item-divider" ng-if="favorites">Favourite Products</li>
+                    <a class="item" ng-repeat="favorite in favorites" href="#/tab/drinks/{{favorite.id}}">{{favorite.name}}</a>
+                </ul>
+            </content>
+        </side-menu>
+    </side-menus>
+
+</view>

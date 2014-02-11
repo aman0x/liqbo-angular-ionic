@@ -1,0 +1,58 @@
+<view title="'Drinks Detail'">
+    <div class="bar bar-header bar-dark">
+        <a class="button button-clear icon ion-arrow-left-b" href="#/tab/drinks"></a>
+        <h1 class="title">{{product.name}}</h1>
+    </div>
+    <content has-header="true" has-tabs="true" scroll="true" padding="false">
+        <list>
+
+            <!-- product info -->
+            <div class="item item-thumbnail-left">
+                <img src="{{product.image_thumb_url}}" ng-if="product.image_thumb_url">
+                <img src="img/no-img.png" ng-if="!product.image_thumb_url">
+                <h2 class="positive">{{product.name}}</h2>
+                <h3>{{product.alcohol_content | alcoholPercentage}} {{product.primary_category}} </h3>
+                <p>{{product.package}}</p>
+            </div>
+
+            <!-- add as favorite button -->
+            <a class="item item-icon-left item-icon-right" href="" ng-click="toggleFavorite(product);" ng-class="{'item-positive': isFavorite}">
+                <i class="icon ion-thumbsup" ng-class="{dark: !isFavorite}"></i>
+                <span ng-class="{dark: !isFavorite}">Favourite</span>
+                <i class="icon" ng-class="{'ion-ios7-plus-outline': !isFavorite, 'ion-ios7-close': isFavorite}"></i>
+            </a>
+
+            <!-- pricing info -->
+            <lcbo-detail-price title="Price" price="{{product.price_in_cents}}" sale="{{product.has_limited_time_offer}}" savings="{{product.limited_time_offer_savings_in_cents}}" until="{{product.limited_time_offer_ends_on}}"></lcbo-detail-price>
+
+            <!-- tertiary category -->
+            <lcbo-detail-item title="Category" content="{{product.tertiary_category}}"></lcbo-detail-item>
+
+            <!-- tasting notes -->
+            <lcbo-detail-item title="Tasting Notes" content="{{product.tasting_note}}"></lcbo-detail-item>
+
+            <!-- serving suggestions -->
+            <lcbo-detail-item title="Serving Suggestions" content="{{product.serving_suggestion}}"></lcbo-detail-item>
+
+            <!-- find locally button -->
+            <a class="item item-icon-left" href="" ng-click="findLocally(product);">
+                <i class="icon ion-ios7-search-strong"></i>
+                Find Locally
+            </a>
+
+            <!-- find local results -->
+            <a ng-repeat="store in stores" class="item item-icon-left" href="" ng-click="findLocation(store.id);">
+                <i class="icon ion-ios7-cart"></i>
+                {{store.name}}
+                <span class="badge badge-assertive">{{store.quantity}}</span>
+            </a>
+
+            <!-- location data error -->
+            <li class="item item-assertive item-icon-left item-icon-right" ng-show="noLocation" ng-click="clearError();">
+                <i class="icon ion-alert-circled"></i>
+                No Items Found
+                <i class="icon ion-ios7-close-outline"></i>
+            </li>
+        </list>
+    </content>
+</view>

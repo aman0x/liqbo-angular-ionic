@@ -1,0 +1,8 @@
+<div class="item item-divider">
+    {{title}}
+</div>
+<div class="item item-text-wrap">
+    <span>{{price | centsToDollars}}</span>
+    <span class="badge badge-positive" ng-if="sale">Sale</span>
+    <h4 class="positive" ng-if="sale">Save {{savings | centsToDollars}} until {{until}}</h4>
+</div>

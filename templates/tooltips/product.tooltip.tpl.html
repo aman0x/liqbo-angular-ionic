@@ -1,0 +1,36 @@
+<div class="modal">
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">Product Search Tool</h1>
+    </div>
+    <content has-header="true" has-footer="true">
+        <div class="item item-divider item-dark">
+            Find Products
+        </div>
+        <div class="item item-text-wrap">
+            <p>To search for products, use the search bar in the header. Enter your query and press submit to view details for up to 20 products.</p>
+
+            <p class="center"><img src="img/search_bar.gif" /></p>
+        </div>
+        <div class="item item-divider item-dark">
+            Tag a Product as Favourite
+        </div>
+        <div class="item item-text-wrap">
+            <p>To add a product to your favourite list, navigate to the product details page, then click Favourite.</p>
+            <p>To view your favourite products, navigate back to the drink search page and reveal the menu. Favourites will appear at the bottom of the Options menu.</p>
+
+            <p class="center"><img src="img/add_favorite.gif"></p>
+        </div>
+
+        <ul class="list">
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="tip.selected" ng-true-value="true" ng-false-value="false">
+                </label>
+                Hide Tooltips
+            </li>
+        </ul>
+    </content>
+    <button class="bar bar-footer bar-positive" ng-click="closeModal(tip)">
+        <span class="title">Close</span>
+    </button>
+</div>
